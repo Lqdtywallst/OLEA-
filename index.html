@@ -66,6 +66,10 @@
       overflow-x: hidden;
     }
 
+    body.menu-open {
+      overflow: hidden;
+    }
+
     img,
     svg {
       display: block;
@@ -277,6 +281,8 @@
       align-items: center;
       justify-content: center;
       gap: 28px;
+      min-height: 100dvh;
+      overflow-y: auto;
       background: rgba(38, 44, 26, 0.97);
       color: var(--white);
       font-weight: 800;
@@ -1438,12 +1444,35 @@
         --container: min(100% - 22px, 1120px);
       }
 
+      html {
+        scroll-padding-top: 76px;
+      }
+
       body {
         font-size: 0.97rem;
       }
 
+      h1,
+      h2,
+      h3,
+      p,
+      a,
+      span,
+      strong {
+        overflow-wrap: anywhere;
+      }
+
+      .section {
+        padding: 52px 0;
+      }
+
       .section-heading {
+        max-width: 100%;
         margin-bottom: 30px;
+      }
+
+      .section-heading p {
+        font-size: 0.98rem;
       }
 
       .eyebrow {
@@ -1468,30 +1497,53 @@
         min-height: 68px;
       }
 
+      .brand-word {
+        font-size: 1.05rem;
+      }
+
       .nav-links {
-        gap: 22px;
-        padding: 92px 22px 34px;
+        justify-content: flex-start;
+        gap: 18px;
+        min-height: 100dvh;
+        padding: 96px 22px max(34px, env(safe-area-inset-bottom));
         text-align: center;
       }
 
       .nav-links a {
+        width: min(100%, 320px);
+        padding: 6px 0;
         font-size: 1.05rem;
       }
 
       .nav-links .nav-cta {
-        width: min(100%, 280px);
+        width: min(100%, 320px);
         margin-top: 4px;
+      }
+
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
       }
 
       .hero {
         min-height: auto;
-        padding: 112px 0 58px;
+        padding: 104px 0 54px;
         text-align: center;
       }
 
       .hero-content {
+        gap: 18px;
         justify-items: center;
         max-width: 100%;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2rem, 11vw, 3rem);
+      }
+
+      .hero-title-line,
+      .hero-title-line--first {
+        white-space: normal;
       }
 
       .hero-kicker {
@@ -1509,6 +1561,10 @@
         align-items: stretch;
       }
 
+      .hero-actions .btn {
+        justify-content: center;
+      }
+
       .floating-badge {
         width: 100%;
         margin-top: 30px;
@@ -1522,12 +1578,15 @@
 
       .logo-strip {
         gap: 8px;
+        justify-content: center;
       }
 
       .platform {
+        flex: 1 1 138px;
         min-height: 36px;
         padding-inline: 12px;
         font-size: 0.82rem;
+        text-align: center;
       }
 
       .service-card,
@@ -1540,6 +1599,40 @@
         padding: 20px;
       }
 
+      .service-differential {
+        border-radius: 20px;
+      }
+
+      .chat-header,
+      .range-row,
+      .person,
+      .calendly-card-header,
+      .contact-option {
+        align-items: flex-start;
+      }
+
+      .chat-header,
+      .range-row {
+        flex-direction: column;
+      }
+
+      .chat-bubble {
+        max-width: 100%;
+      }
+
+      .calculator-layout,
+      .calculator-fields,
+      .cta-layout,
+      .form-row,
+      .stats-grid,
+      .timeline,
+      .services-grid,
+      .testimonial-grid,
+      .property-grid,
+      .founder-grid {
+        grid-template-columns: 1fr;
+      }
+
       .property-image {
         aspect-ratio: 4 / 3;
       }
@@ -1550,6 +1643,10 @@
 
       .property-meta {
         gap: 8px;
+      }
+
+      .property-location {
+        max-width: 100%;
       }
 
       .result-number {
@@ -1590,6 +1687,10 @@
 
       .footer-grid {
         text-align: center;
+      }
+
+      .footer .logo {
+        justify-content: center;
       }
 
       .footer-links,
@@ -2473,7 +2574,23 @@
       menuToggle.classList.toggle("is-open", isOpen);
       menuToggle.setAttribute("aria-expanded", String(isOpen));
       menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
-      document.body.style.overflow = isOpen ? "hidden" : "";
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+
+    function closeMobileMenu() {
+      navLinks.classList.remove("is-open");
+      menuToggle.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menú");
+      document.body.classList.remove("menu-open");
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMobileMenu();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1024) closeMobileMenu();
     });
 
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -2484,10 +2601,7 @@
         if (!target) return;
 
         event.preventDefault();
-        navLinks.classList.remove("is-open");
-        menuToggle.classList.remove("is-open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
+        closeMobileMenu();
         target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
       });
     });
