@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de ingresos Airbnb en Colombia | Olea</title>
+  <meta name="description" content="Calcula una estimación mensual para tu propiedad turística en Colombia según ciudad, estrato, piso, zona, m² y extras.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#262C1A">
+  <link rel="canonical" href="https://olea.example/calculadora.html">
+  <meta property="og:title" content="Calculadora de ingresos Airbnb en Colombia | Olea">
+  <meta property="og:description" content="Calcula una estimación mensual para tu propiedad turística en Colombia según ciudad, estrato, piso, zona, m² y extras.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://olea.example/calculadora.html">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculadora de ingresos Airbnb en Colombia | Olea">
+  <meta name="twitter:description" content="Calcula una estimación mensual para tu propiedad turística en Colombia según ciudad, estrato, piso, zona, m² y extras.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Olea","description":"Gestión integral de alquileres turísticos en Colombia para propietarios.","url":"https://olea.example","telephone":"+57 300 000 0000","areaServed":["Bogotá","Medellín","Cartagena","Santa Marta","Cali","Barranquilla","San Andrés","Eje Cafetero","Ibagué","Guamo"],"priceRange":"15% comisión","sameAs":["https://www.instagram.com/","https://www.linkedin.com/"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://olea.example/"},{"@type":"ListItem","position":2,"name":"Calculadora","item":"https://olea.example/calculadora.html"}]}</script>
+</head>
+<body>
+  <!-- === SECCIÓN: NAVEGACIÓN === -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" role="navigation" aria-label="Navegación principal">
+      <a class="logo" href="index.html" aria-label="Olea inicio">
+        <span class="brand-word" aria-hidden="true"><span class="brand-ole">OLE</span><span class="brand-a">A</span></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="servicios.html">Servicios</a>
+        <a href="servicios.html#proceso">Cómo funciona</a>
+        <a href="propiedades.html">Propiedades</a>
+        <a href="calculadora.html" aria-current="page">Calculadora</a>
+        <a href="nosotros.html">Quiénes somos</a>
+        <a href="contacto.html">Contacto</a>
+        <a class="btn btn-primary nav-cta" href="https://wa.me/971556587548?text=Hola%20Olea%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20gesti%C3%B3n%20de%20mi%20propiedad%20para%20alquiler%20tur%C3%ADstico%20en%20Colombia." target="_blank" rel="noopener noreferrer">Habla con nosotros</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="page-hero">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Calculadora</span>
+          <h1>Estima el potencial de ingresos de tu propiedad.</h1>
+          <p>Usa variables de mercado colombiano para obtener una referencia inicial antes de solicitar una valoración personalizada.</p>
+        </div>
+      </div>
+    </section>
+    <!-- === SECCIÓN: CALCULADORA === -->
+    <section class="section calculator-section" id="calculadora">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Calculadora</span>
+          <h2>Estima cuánto podrías generar cada mes.</h2>
+          <p>En Colombia, el estrato, el piso, la ubicación y los extras cambian mucho el precio por noche. Ajusta estos datos para una estimación más realista.</p>
+        </div>
+        <div class="calculator-layout reveal">
+          <form class="calculator-panel" id="incomeCalculator">
+            <div class="calculator-fields">
+              <div class="field-group field-group--full">
+                <label for="squareMeters">¿Cuántos m² tiene tu propiedad?</label>
+                <div class="range-row">
+                  <span>20 m²</span>
+                  <span class="range-value" id="m2Value">80 m²</span>
+                  <span>200 m²</span>
+                </div>
+                <input id="squareMeters" name="squareMeters" type="range" min="20" max="200" value="80">
+              </div>
+              <div class="field-group">
+                <label for="city">Ciudad</label>
+                <select id="city" name="city">
+                  <option value="bogota">Bogotá</option>
+                  <option value="medellin">Medellín</option>
+                  <option value="cartagena">Cartagena</option>
+                  <option value="santa_marta">Santa Marta</option>
+                  <option value="cali">Cali</option>
+                  <option value="barranquilla">Barranquilla</option>
+                  <option value="san_andres">San Andrés</option>
+                  <option value="eje_cafetero">Eje Cafetero</option>
+                  <option value="ibague">Ibagué</option>
+                  <option value="guamo">Guamo</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="propertyType">Tipo de propiedad</label>
+                <select id="propertyType" name="propertyType">
+                  <option value="studio">Estudio</option>
+                  <option value="one">1 hab</option>
+                  <option value="two" selected>2 hab</option>
+                  <option value="three">3+ hab</option>
+                  <option value="villa">Villa</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="estrato">Estrato</label>
+                <select id="estrato" name="estrato">
+                  <option value="1">Estrato 1</option>
+                  <option value="2">Estrato 2</option>
+                  <option value="3" selected>Estrato 3</option>
+                  <option value="4">Estrato 4</option>
+                  <option value="5">Estrato 5</option>
+                  <option value="6">Estrato 6</option>
+                </select>
+                <span class="field-hint">Un estrato 6 no renta igual que un estrato 1: influye en demanda, tarifa y perfil de huésped.</span>
+              </div>
+              <div class="field-group">
+                <label for="floorLevel">Piso</label>
+                <select id="floorLevel" name="floorLevel">
+                  <option value="ground">Planta baja</option>
+                  <option value="low" selected>Pisos 1-3</option>
+                  <option value="mid">Pisos 4-8</option>
+                  <option value="high">Pisos 9+</option>
+                  <option value="penthouse">Penthouse / último piso</option>
+                </select>
+                <span class="field-hint">Vistas, ruido y acceso cambian el precio según el nivel del inmueble.</span>
+              </div>
+              <div class="field-group field-group--full">
+                <label for="locationZone">Ubicación dentro de la ciudad</label>
+                <select id="locationZone" name="locationZone">
+                  <option value="standard" selected>Residencial estándar</option>
+                  <option value="tourist">Zona turística o de alta demanda</option>
+                  <option value="premium">Zona premium, vista o sector exclusivo</option>
+                </select>
+              </div>
+              <div class="field-group field-group--full">
+                <span class="field-hint">Extras que suelen subir ocupación y tarifa media</span>
+                <div class="checkbox-group">
+                  <label class="checkbox-item" for="hasParking">
+                    <input id="hasParking" name="hasParking" type="checkbox">
+                    Parqueadero incluido
+                  </label>
+                  <label class="checkbox-item" for="hasPool">
+                    <input id="hasPool" name="hasPool" type="checkbox">
+                    Piscina o zonas comunes premium
+                  </label>
+                  <label class="checkbox-item" for="hasElevator">
+                    <input id="hasElevator" name="hasElevator" type="checkbox" checked>
+                    Ascensor
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+          <aside class="result-panel" aria-live="polite">
+            <span class="result-label">Estimación mensual</span>
+            <div class="result-number" id="monthlyIncome">$ 0 COP</div>
+            <p class="result-range" id="incomeRange">Rango estimado: $ 0 - $ 0 COP</p>
+            <div class="result-factors" id="resultFactors" aria-label="Factores aplicados en la estimación"></div>
+            <p class="legal-note">Estimación orientativa calculada como tarifa media por noche × ocupación × 30,4 noches, con datos de mercado 2025-2026 (Airbtics, AirDNA, Fedelonjas/Camacol y TheLatinvestor). Ajusta estrato, piso, zona y extras para afinar el resultado. Muestra el ingreso estimado del propietario tras la comisión de gestión del 15%; no incluye gastos como servicios, administración o mantenimiento.</p>
+            <a class="btn btn-primary" href="contacto.html">Quiero saber más — Solicitar valoración gratuita</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section class="section cta-band">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Siguiente paso</span>
+          <h2>Convierte la estimación en una valoración real.</h2>
+          <p>Nuestro equipo revisa tu inmueble y te entrega una estrategia ajustada a ubicación, temporada y tipo de huésped.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="contacto.html">Solicitar valoración gratuita</a>
+            <a class="btn btn-ghost" href="https://calendly.com/tatianagomezfiscal/30min" target="_blank" rel="noopener noreferrer">Agendar reunión para más información</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- === SECCIÓN: FOOTER === -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html" aria-label="Olea inicio">
+            <span class="brand-word" aria-hidden="true"><span class="brand-ole">OLE</span><span class="brand-a">A</span></span>
+          </a>
+          <p>Gestión integral de alquileres turísticos para propietarios que quieren rentabilidad sin fricción.</p>
+        </div>
+        <div class="footer-links" aria-label="Enlaces de footer">
+          <a href="servicios.html">Servicios</a>
+          <a href="propiedades.html">Propiedades</a>
+          <a href="servicios.html#proceso">Proceso</a>
+          <a href="contacto.html#faq">FAQ</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="contacto.html#privacidad">Política de Privacidad</a>
+          <a href="contacto.html#legal">Aviso Legal</a>
+        </div>
+        <div class="social-links" aria-label="Redes sociales">
+          <a class="social-link" href="https://www.instagram.com/" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.8"/><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" stroke="currentColor" stroke-width="1.8"/><path d="M17.2 7h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.5 10v8M6.5 7v.01M11 18v-8M11 13.5c0-2 1.3-3.5 3.3-3.5 1.9 0 3.2 1.2 3.2 3.8V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </a>
+          <a class="social-link" href="https://wa.me/971556587548?text=Hola%20Olea%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20gesti%C3%B3n%20de%20mi%20propiedad%20para%20alquiler%20tur%C3%ADstico%20en%20Colombia." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 19l1-3a7 7 0 1 1 2.8 2.4L5 19Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 9.5c.4 2 2 3.6 4 4l1.1-1.1 1.6.8c.2.1.3.3.3.5 0 .8-.6 1.6-1.5 1.6-3.6 0-6.5-2.9-6.5-6.5 0-.9.8-1.5 1.6-1.5.2 0 .4.1.5.3l.8 1.6-1.1 1.1Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <p class="copyright">© 2026 Olea. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/971556587548?text=Hola%20Olea%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20gesti%C3%B3n%20de%20mi%20propiedad%20para%20alquiler%20tur%C3%ADstico%20en%20Colombia." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 19l1-3a7 7 0 1 1 2.8 2.4L5 19Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 9.5c.4 2 2 3.6 4 4l1.1-1.1 1.6.8c.2.1.3.3.3.5 0 .8-.6 1.6-1.5 1.6-3.6 0-6.5-2.9-6.5-6.5 0-.9.8-1.5 1.6-1.5.2 0 .4.1.5.3l.8 1.6-1.1 1.1Z" fill="currentColor"/></svg>
+  </a>
+
+  <script src="assets/main.js" defer></script>
+  <script src="assets/calculator.js" defer></script>
+</body>
+</html>
