@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Alquileres Turísticos en Colombia | Olea - Airbnb, Booking y más</title>
+  <meta name="description" content="Gestión integral de alquileres turísticos en Colombia para propietarios. Publicamos, optimizamos y gestionamos tu vivienda vacacional en Airbnb, Booking, Vrbo y más.">
+  <meta name="theme-color" content="#262C1A">
+  <meta property="og:title" content="Olea | Gestión de Alquileres Turísticos en Colombia">
+  <meta property="og:description" content="Más ingresos y cero preocupaciones para propietarios de viviendas vacacionales en Colombia.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Olea",
+      "description": "Gestión integral de alquileres turísticos en Colombia para propietarios.",
+      "url": "https://www.olea.example",
+      "telephone": "+57 300 000 0000",
+      "areaServed": ["Bogotá", "Medellín", "Cartagena", "Santa Marta", "Cali", "Barranquilla", "San Andrés", "Eje Cafetero", "Ibagué", "Guamo"],
+      "priceRange": "15% comisión",
+      "sameAs": [
+        "https://www.instagram.com/",
+        "https://www.linkedin.com/"
+      ]
+    }
+  </script>
+  <style>
+    /* === SECCIÓN: VARIABLES Y BASE === */
+    :root {
+      --primary: #4F5B36;
+      --dark-olive: #262C1A;
+      --accent: #C16A47;
+      --gold: #C7A467;
+      --surface: #F3EEE2;
+      --card: #FAF7F0;
+      --text-dark: #262C1A;
+      --text-muted: #686D5A;
+      --white: #FFFFFF;
+      --border: #D8D1BE;
+      --shadow: 0 22px 60px rgba(38, 44, 26, 0.12);
+      --shadow-soft: 0 12px 32px rgba(38, 44, 26, 0.09);
+      --radius: 12px;
+      --container: min(1120px, calc(100% - 32px));
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--surface);
+      color: var(--text-dark);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(193, 106, 71, 0.75);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: var(--container);
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 76px 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--dark-olive);
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    h1 {
+      color: var(--white);
+      font-size: clamp(3rem, 12vw, 4rem);
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: clamp(2.25rem, 8vw, 3.5rem);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+    }
+
+    .section-heading p {
+      margin-top: 16px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 24px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 16px 34px rgba(193, 106, 71, 0.26);
+    }
+
+    .btn-primary:hover {
+      background: #B95F3F;
+      box-shadow: 0 20px 44px rgba(193, 106, 71, 0.34);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.48);
+      color: var(--white);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === SECCIÓN: NAVEGACIÓN === */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      background: rgba(243, 238, 226, 0.94);
+      box-shadow: 0 10px 30px rgba(38, 44, 26, 0.08);
+      backdrop-filter: blur(18px);
+      transition: background 0.25s ease, box-shadow 0.25s ease, backdrop-filter 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(243, 238, 226, 0.98);
+      box-shadow: 0 12px 36px rgba(38, 44, 26, 0.12);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      font-weight: 900;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-word {
+      display: inline-flex;
+      align-items: baseline;
+      font-size: 1.15rem;
+      line-height: 1;
+      text-transform: none;
+    }
+
+    .brand-ole {
+      color: var(--dark-olive);
+    }
+
+    .brand-a {
+      color: var(--accent);
+    }
+
+    .logo-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border: 1px solid rgba(199, 164, 103, 0.7);
+      border-radius: 50%;
+      color: var(--gold);
+      font-family: "Fraunces", serif;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      background: rgba(38, 44, 26, 0.97);
+      color: var(--white);
+      font-weight: 800;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .nav-links.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible,
+    .nav-links a:active {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      display: none;
+      min-height: 42px;
+      padding-inline: 18px;
+      font-size: 0.9rem;
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 14px 28px rgba(79, 91, 54, 0.22);
+    }
+
+    .nav-cta:hover {
+      background: #5F6D42;
+      color: var(--white);
+      box-shadow: 0 18px 34px rgba(79, 91, 54, 0.3);
+    }
+
+    .nav-links .nav-cta:active,
+    .nav-links .nav-cta:focus,
+    .nav-links .nav-cta:focus-visible {
+      color: var(--dark-olive);
+    }
+
+    .menu-toggle {
+      position: relative;
+      z-index: 60;
+      display: inline-grid;
+      width: 46px;
+      height: 46px;
+      place-items: center;
+      border: 1px solid rgba(38, 44, 26, 0.18);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.52);
+      color: var(--primary);
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 999px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      content: "";
+      position: absolute;
+    }
+
+    .menu-toggle span::before {
+      transform: translateY(-7px);
+    }
+
+    .menu-toggle span::after {
+      transform: translateY(7px);
+    }
+
+    .menu-toggle.is-open span {
+      background: transparent;
+    }
+
+    .menu-toggle.is-open span::before {
+      background: var(--white);
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle.is-open span::after {
+      background: var(--white);
+      transform: rotate(-45deg);
+    }
+
+    /* === SECCIÓN: HERO === */
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 100svh;
+      place-items: center;
+      overflow: hidden;
+      padding: 118px 0 76px;
+      background:
+        linear-gradient(90deg, rgba(38, 44, 26, 0.88), rgba(38, 44, 26, 0.52)),
+        url("https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1800&q=85") center / cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 170px;
+      background: linear-gradient(180deg, rgba(243, 238, 226, 0), var(--surface));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 28px;
+      max-width: 780px;
+      color: var(--white);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(14px);
+      color: var(--gold);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .hero-content p {
+      max-width: 660px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(1.05rem, 4vw, 1.35rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .floating-badge {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 380px);
+      margin-top: 42px;
+      padding: 18px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--gold);
+      font-weight: 800;
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(18px);
+    }
+
+    .google-review-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .google-review-logo {
+      display: inline-grid;
+      width: 22px;
+      height: 22px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    /* === SECCIÓN: SOCIAL PROOF === */
+    .logos {
+      padding: 26px 0;
+      background: var(--card);
+      border-block: 1px solid var(--border);
+    }
+
+    .logos-inner {
+      display: grid;
+      gap: 18px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logos p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .logo-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .platform {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    /* === SECCIÓN: SERVICIOS === */
+    .services-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(193, 106, 71, 0.45);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card {
+      padding: 28px;
+    }
+
+    .icon-box {
+      display: grid;
+      width: 72px;
+      height: 72px;
+      margin-bottom: 22px;
+      place-items: center;
+      border: 1px solid rgba(199, 164, 103, 0.34);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(79, 91, 54, 0.16), rgba(193, 106, 71, 0.12));
+      color: var(--dark-olive);
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 12px 24px rgba(38, 44, 26, 0.08);
+    }
+
+    .icon-box::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(38, 44, 26, 0.08), rgba(193, 106, 71, 0.12));
+      pointer-events: none;
+    }
+
+    .icon-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+    }
+
+    .service-card p {
+      margin-top: 12px;
+      color: var(--text-muted);
+    }
+
+    /* === SECCIÓN: CALCULADORA === */
+    .calculator-section {
+      background: var(--card);
+      border-block: 1px solid var(--border);
+    }
+
+    .calculator-layout {
+      display: grid;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .calculator-panel,
+    .result-panel {
+      padding: 26px;
+      border-radius: 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .field-group {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .field-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .calculator-fields {
+      display: grid;
+      gap: 0 16px;
+    }
+
+    .field-hint {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    .checkbox-group {
+      display: grid;
+      gap: 10px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--text-dark);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .checkbox-item input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .result-range {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .result-factors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .factor-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    label {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--text-dark);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    select,
+    input:not([type="range"]) {
+      min-height: 52px;
+      padding: 0 14px;
+    }
+
+    textarea {
+      min-height: 116px;
+      padding: 14px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(193, 106, 71, 0.14);
+      outline: none;
+    }
+
+    input[type="range"] {
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .range-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .range-value {
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .result-panel {
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      background: var(--dark-olive);
+      color: var(--white);
+    }
+
+    .result-label {
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .result-number {
+      color: var(--gold);
+      font-family: "Fraunces", serif;
+      font-size: clamp(3.3rem, 14vw, 5.5rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .legal-note {
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.88rem;
+    }
+
+    /* === SECCIÓN: STATS === */
+    .stats {
+      padding: 56px 0;
+      background: var(--dark-olive);
+      color: var(--white);
+    }
+
+    .stats-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stat-card {
+      padding: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      text-align: center;
+    }
+
+    .stat-number {
+      color: var(--gold);
+      font-family: "Fraunces", serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat-card p {
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 700;
+    }
+
+    /* === SECCIÓN: PROCESO === */
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .step-card {
+      position: relative;
+      padding: 28px;
+      overflow: hidden;
+    }
+
+    .step-number {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 20px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .step-card p {
+      margin-top: 12px;
+      color: var(--text-muted);
+    }
+
+    /* === SECCIÓN: TESTIMONIOS === */
+    .testimonials {
+      background: linear-gradient(180deg, var(--surface), var(--card) 45%, var(--surface));
+    }
+
+    .testimonial-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .testimonial-card {
+      display: grid;
+      gap: 18px;
+      padding: 26px;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .avatar {
+      width: 58px;
+      height: 58px;
+      border: 3px solid rgba(199, 164, 103, 0.42);
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .person strong {
+      display: block;
+      color: var(--primary);
+    }
+
+    .person span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .stars {
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+
+    .quote {
+      color: var(--text-dark);
+      font-size: 1.02rem;
+    }
+
+    .income-pill {
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(79, 91, 54, 0.12);
+      color: var(--dark-olive);
+      font-weight: 900;
+    }
+
+    /* === SECCIÓN: FAQ === */
+    .faq-list {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .faq-question {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px;
+      border: 0;
+      background: transparent;
+      color: var(--primary);
+      font-weight: 900;
+      text-align: left;
+    }
+
+    .faq-icon {
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(199, 164, 103, 0.16);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      color: var(--text-muted);
+      transition: max-height 0.28s ease;
+    }
+
+    .faq-answer p {
+      padding: 0 20px 20px;
+    }
+
+    .faq-item.is-open .faq-answer {
+      max-height: 280px;
+    }
+
+    .faq-item.is-open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* === SECCIÓN: CTA FINAL Y FORMULARIO === */
+    .final-cta {
+      background:
+        linear-gradient(135deg, rgba(38, 44, 26, 0.72), rgba(38, 44, 26, 0.62)),
+        url("https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=85") center / cover;
+      color: var(--white);
+    }
+
+    .cta-layout {
+      display: grid;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .cta-copy h2 {
+      color: var(--white);
+    }
+
+    .cta-copy p {
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.1rem;
+    }
+
+    .trust-line {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.93rem;
+      font-weight: 800;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .form-row {
+      display: grid;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .contact-form .field-group {
+      margin-bottom: 0;
+      align-content: start;
+    }
+
+    .contact-form label {
+      color: var(--white);
+      min-height: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .field-error {
+      min-height: 18px;
+      color: #F3C2AD;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .form-success {
+      display: none;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(79, 91, 54, 0.24);
+      color: #F3EEE2;
+      font-weight: 800;
+    }
+
+    .form-success.is-visible {
+      display: block;
+    }
+
+    /* === SECCIÓN: FOOTER === */
+    .footer {
+      padding: 44px 0;
+      background: var(--dark-olive);
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .footer .logo {
+      margin-bottom: 12px;
+    }
+
+    .footer-links,
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-links a,
+    .social-links a {
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover,
+    .social-links a:hover {
+      color: var(--accent);
+    }
+
+    .social-link {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+    }
+
+    .copyright {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.9rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 45;
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: var(--white);
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.36);
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    /* === SECCIÓN: RESPONSIVE === */
+    @media (min-width: 375px) {
+      .hero-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .section {
+        padding: 96px 0;
+      }
+
+      h1 {
+        font-size: 64px;
+      }
+
+      .nav-links {
+        position: static;
+        flex-direction: row;
+        gap: 26px;
+        background: transparent;
+        color: var(--primary);
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        font-size: 0.92rem;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .logos-inner {
+        grid-template-columns: 0.55fr 1.45fr;
+        text-align: left;
+      }
+
+      .logo-strip {
+        justify-content: flex-end;
+      }
+
+      .services-grid,
+      .testimonial-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .calculator-layout,
+      .cta-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .calculator-fields {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .field-group--full {
+        grid-column: 1 / -1;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .timeline {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 51px;
+        left: 7%;
+        right: 7%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      }
+
+      .step-card {
+        z-index: 1;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.1fr 1fr 0.6fr;
+        align-items: start;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .hero {
+        min-height: 880px;
+      }
+
+      .floating-badge {
+        position: absolute;
+        right: 7vw;
+        bottom: 16vh;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- === SECCIÓN: NAVEGACIÓN === -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" role="navigation" aria-label="Navegación principal">
+      <a class="logo" href="#top" aria-label="Olea inicio">
+        <span class="brand-word" aria-hidden="true"><span class="brand-ole">OLE</span><span class="brand-a">A</span></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Cómo funciona</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="#contacto">Contacto</a>
+        <a class="btn btn-primary nav-cta" href="#contacto">Habla con nosotros</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- === SECCIÓN: HERO === -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content reveal">
+          <span class="hero-kicker">GESTIÓN INTEGRAL · AIRBNB & BOOKING · COLOMBIA</span>
+          <h1>Tu propiedad trabaja para ti. Nosotros nos encargamos del resto.</h1>
+          <p>Gestionamos limpieza, reservas, anuncios y huéspedes de principio a fin, con un equipo humano respaldado por IA que responde en segundos, los 365 días del año.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#calculadora">Calcula tus ingresos</a>
+            <a class="btn btn-ghost" href="#proceso">Ver cómo funciona</a>
+          </div>
+        </div>
+        <div class="floating-badge reveal">
+          Propietarios en +8 destinos de Colombia ✦ 4.9★
+          <a class="google-review-link" href="#" aria-label="Ver reseñas de Google Reviews">
+            <span class="google-review-logo" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 18 18" role="img">
+                <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.26-.16-1.86H9v3.52h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.64Z"/>
+                <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.16l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.33-1.58-5.04-3.72H.94v2.34A9 9 0 0 0 9 18Z"/>
+                <path fill="#FBBC05" d="M3.96 10.72A5.41 5.41 0 0 1 3.67 9c0-.6.1-1.18.29-1.72V4.94H.94A9 9 0 0 0 0 9c0 1.45.34 2.82.94 4.06l3.02-2.34Z"/>
+                <path fill="#EA4335" d="M9 3.56c1.32 0 2.5.45 3.43 1.34l2.6-2.6A8.8 8.8 0 0 0 9 0 9 9 0 0 0 .94 4.94l3.02 2.34C4.67 5.14 6.66 3.56 9 3.56Z"/>
+              </svg>
+            </span>
+            Google Reviews
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SECCIÓN: SOCIAL PROOF === -->
+    <section class="logos" aria-label="Plataformas donde publicamos">
+      <div class="container logos-inner reveal">
+        <p>Publicamos tu propiedad en todas las plataformas</p>
+        <div class="logo-strip" aria-label="Portal Olea, Airbnb, Booking.com, Vrbo, Expedia, TripAdvisor y Google Vacation Rentals">
+          <span class="platform">Portal Olea</span>
+          <span class="platform">Airbnb</span>
+          <span class="platform">Booking.com</span>
+          <span class="platform">Vrbo</span>
+          <span class="platform">Expedia</span>
+          <span class="platform">TripAdvisor</span>
+          <span class="platform">Google Vacation Rentals</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SECCIÓN: SERVICIOS === -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Servicios</span>
+          <h2>Nos ocupamos de todo lo que convierte una vivienda en un activo rentable.</h2>
+          <p>Desde la primera foto hasta la reseña final, cada detalle está pensado para maximizar ocupación, precio medio y tranquilidad.</p>
+        </div>
+        <div class="services-grid">
+          <article class="card service-card reveal">
+            <div class="icon-box" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=180&q=80" alt="">
+            </div>
+            <h3>Gestión de anuncios</h3>
+            <p>Optimización de Airbnb y Booking, fotos profesionales y descripción que convierte.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="icon-box" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=180&q=80" alt="">
+            </div>
+            <h3>Mensajería 24/7 con IA</h3>
+            <p>Respuesta inmediata a huéspedes, en varios idiomas, con escalamiento humano cuando se necesita.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="icon-box" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=180&q=80" alt="">
+            </div>
+            <h3>Limpieza y mantenimiento</h3>
+            <p>Equipo certificado y personal fijo, con verificación fotográfica y mantenimiento preventivo entre estancias.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="icon-box" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=180&q=80" alt="">
+            </div>
+            <h3>Optimización de precios - Reservas y calendario</h3>
+            <p>Sin overbooking, con precios ajustados según temporada y demanda real.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="icon-box" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=180&q=80" alt="">
+            </div>
+            <h3>Check-in automatizado</h3>
+            <p>Llaves digitales, instrucciones claras y welcome pack personalizado.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="icon-box" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=180&q=80" alt="">
+            </div>
+            <h3>Reportes mensuales y cumplimiento normativo</h3>
+            <p>Dashboard de ingresos, ocupación y reseñas con lectura clara. RNT, TRA/SIRE y alertas ante cambios regulatorios, gestionados por nosotros.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SECCIÓN: CALCULADORA === -->
+    <section class="section calculator-section" id="calculadora">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Calculadora</span>
+          <h2>Estima cuánto podrías ingresar cada mes.</h2>
+          <p>En Colombia, el estrato, el piso, la ubicación y los extras cambian mucho el precio por noche. Ajusta estos datos para una estimación más realista.</p>
+        </div>
+        <div class="calculator-layout reveal">
+          <form class="calculator-panel" id="incomeCalculator">
+            <div class="calculator-fields">
+              <div class="field-group field-group--full">
+                <label for="squareMeters">¿Cuántos m² tiene tu propiedad?</label>
+                <div class="range-row">
+                  <span>20 m²</span>
+                  <span class="range-value" id="m2Value">80 m²</span>
+                  <span>200 m²</span>
+                </div>
+                <input id="squareMeters" name="squareMeters" type="range" min="20" max="200" value="80">
+              </div>
+              <div class="field-group">
+                <label for="city">Ciudad</label>
+                <select id="city" name="city">
+                  <option value="bogota">Bogotá</option>
+                  <option value="medellin">Medellín</option>
+                  <option value="cartagena">Cartagena</option>
+                  <option value="santa_marta">Santa Marta</option>
+                  <option value="cali">Cali</option>
+                  <option value="barranquilla">Barranquilla</option>
+                  <option value="san_andres">San Andrés</option>
+                  <option value="eje_cafetero">Eje Cafetero</option>
+                  <option value="ibague">Ibagué</option>
+                  <option value="guamo">Guamo</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="propertyType">Tipo de propiedad</label>
+                <select id="propertyType" name="propertyType">
+                  <option value="studio">Estudio</option>
+                  <option value="one">1 hab</option>
+                  <option value="two" selected>2 hab</option>
+                  <option value="three">3+ hab</option>
+                  <option value="villa">Villa</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="estrato">Estrato</label>
+                <select id="estrato" name="estrato">
+                  <option value="1">Estrato 1</option>
+                  <option value="2">Estrato 2</option>
+                  <option value="3" selected>Estrato 3</option>
+                  <option value="4">Estrato 4</option>
+                  <option value="5">Estrato 5</option>
+                  <option value="6">Estrato 6</option>
+                </select>
+                <span class="field-hint">Un estrato 6 no renta igual que un estrato 1: influye en demanda, tarifa y perfil de huésped.</span>
+              </div>
+              <div class="field-group">
+                <label for="floorLevel">Piso</label>
+                <select id="floorLevel" name="floorLevel">
+                  <option value="ground">Planta baja</option>
+                  <option value="low" selected>Pisos 1-3</option>
+                  <option value="mid">Pisos 4-8</option>
+                  <option value="high">Pisos 9+</option>
+                  <option value="penthouse">Penthouse / último piso</option>
+                </select>
+                <span class="field-hint">Vistas, ruido y acceso cambian el precio según el nivel del inmueble.</span>
+              </div>
+              <div class="field-group field-group--full">
+                <label for="locationZone">Ubicación dentro de la ciudad</label>
+                <select id="locationZone" name="locationZone">
+                  <option value="standard" selected>Residencial estándar</option>
+                  <option value="tourist">Zona turística o de alta demanda</option>
+                  <option value="premium">Zona premium, vista o sector exclusivo</option>
+                </select>
+              </div>
+              <div class="field-group field-group--full">
+                <span class="field-hint">Extras que suelen subir ocupación y tarifa media</span>
+                <div class="checkbox-group">
+                  <label class="checkbox-item" for="hasParking">
+                    <input id="hasParking" name="hasParking" type="checkbox">
+                    Parqueadero incluido
+                  </label>
+                  <label class="checkbox-item" for="hasPool">
+                    <input id="hasPool" name="hasPool" type="checkbox">
+                    Piscina o zonas comunes premium
+                  </label>
+                  <label class="checkbox-item" for="hasElevator">
+                    <input id="hasElevator" name="hasElevator" type="checkbox" checked>
+                    Ascensor
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+          <aside class="result-panel" aria-live="polite">
+            <span class="result-label">Estimación mensual</span>
+            <div class="result-number" id="monthlyIncome">$ 0 COP</div>
+            <p class="result-range" id="incomeRange">Rango estimado: $ 0 - $ 0 COP</p>
+            <div class="result-factors" id="resultFactors" aria-label="Factores aplicados en la estimación"></div>
+            <p class="legal-note">Estimación orientativa calculada como tarifa media por noche × ocupación × 30,4 noches, con datos de mercado 2025-2026 (Airbtics, AirDNA, Fedelonjas/Camacol y TheLatinvestor). Ajusta estrato, piso, zona y extras para afinar el resultado. Muestra el ingreso estimado del propietario tras la comisión de gestión del 15%; no incluye gastos como servicios, administración o mantenimiento.</p>
+            <a class="btn btn-primary" href="#contacto">Quiero saber más — Solicitar valoración gratuita</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SECCIÓN: STATS === -->
+    <section class="stats" aria-label="Resultados de Olea">
+      <div class="container stats-grid reveal">
+        <div class="stat-card">
+          <div class="stat-number" data-counter="4.9" data-suffix="★">0★</div>
+          <p>Valoración media huéspedes</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-counter="40" data-prefix="+" data-suffix="%">+0%</div>
+          <p>Ingresos vs. gestión propia</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-counter="72" data-suffix="h">0h</div>
+          <p>Para poner tu propiedad online</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SECCIÓN: PROCESO === -->
+    <section class="section" id="proceso">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Proceso</span>
+          <h2>Cómo funciona, paso a paso.</h2>
+          <p>Un sistema simple y transparente, con equipo humano respaldado por IA para que delegues sin perder control.</p>
+        </div>
+        <div class="timeline">
+          <article class="card step-card reveal">
+            <div class="step-number">1</div>
+            <h3>Contacto gratuito</h3>
+            <p>Analizamos tu propiedad sin compromiso. La IA cruza datos de mercado, ocupación y tarifas para estimar su potencial real con mayor precisión.</p>
+          </article>
+          <article class="card step-card reveal">
+            <div class="step-number">2</div>
+            <h3>Alta en 72h</h3>
+            <p>Preparamos anuncio, fotos, precios y publicación multicanal. La IA optimiza títulos, descripciones y precios dinámicos desde el primer día.</p>
+          </article>
+          <article class="card step-card reveal">
+            <div class="step-number">3</div>
+            <h3>Generamos reservas</h3>
+            <p>Activamos gestión comercial, operativa y de huéspedes 24/7. La IA responde en segundos; nuestro equipo supervisa cada interacción.</p>
+          </article>
+          <article class="card step-card reveal">
+            <div class="step-number">4</div>
+            <h3>Cobras cada mes</h3>
+            <p>Transferencia directa con informe detallado de ingresos y ocupación. Dashboard con insights de IA sobre rendimiento, reseñas y oportunidades.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SECCIÓN: TESTIMONIOS === -->
+    <section class="section testimonials">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Casos de éxito</span>
+          <h2>Propietarios que ya han delegado con confianza.</h2>
+        </div>
+        <div class="testimonial-grid">
+          <article class="card testimonial-card reveal">
+            <div class="person">
+              <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80" alt="Foto de Laura Martín">
+              <div>
+                <strong>Laura Martín</strong>
+                <span>Bogotá · Apartamento 2 hab</span>
+              </div>
+            </div>
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="quote">"Pasé de contestar mensajes a cualquier hora a recibir un informe mensual impecable. En Chapinero pasamos de una ocupación del 45% al 58% en el primer trimestre."</p>
+            <span class="income-pill">$ 2.800.000 COP/mes de media</span>
+          </article>
+          <article class="card testimonial-card reveal">
+            <div class="person">
+              <img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80" alt="Foto de Miguel Rivas">
+              <div>
+                <strong>Miguel Rivas</strong>
+                <span>Medellín · Apartamento con balcón</span>
+              </div>
+            </div>
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="quote">"La diferencia estuvo en los precios dinámicos y en la calidad del anuncio. Hoy mantenemos una ocupación cercana al 63%, la media del mercado en Medellín."</p>
+            <span class="income-pill">$ 3.400.000 COP/mes de media</span>
+          </article>
+          <article class="card testimonial-card reveal">
+            <div class="person">
+              <img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80" alt="Foto de Ana Costa">
+              <div>
+                <strong>Ana Costa</strong>
+                <span>Cartagena · Casa vacacional</span>
+              </div>
+            </div>
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="quote">"Necesitaba una gestión seria para una propiedad premium. Con tarifas alineadas al mercado de Cartagena, la casa rinde de forma constante todo el año."</p>
+            <span class="income-pill">$ 6.800.000 COP/mes de media</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SECCIÓN: FAQ === -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Preguntas frecuentes.</h2>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item is-open">
+            <button class="faq-question" type="button" aria-expanded="true">
+              ¿Cuál es su comisión?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>Nuestra comisión estándar es del 15% sobre ingresos generados. Incluye gestión comercial, atención al huésped, coordinación operativa e informes mensuales.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              ¿Puedo seguir usando mi propiedad?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>Sí. Bloqueamos en el calendario las fechas que necesites para uso personal y ajustamos la estrategia de ocupación alrededor de ellas.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              ¿Cómo recibo los pagos?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>Recibes una transferencia mensual con el desglose de ingresos, comisiones, ocupación, gastos operativos aprobados y reseñas destacadas.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              ¿Qué pasa si hay daños?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>Documentamos cada estancia, gestionamos reclamaciones con plataformas y coordinamos reparaciones con proveedores verificados cuando sea necesario.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              ¿En qué ciudades operan?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>Operamos en Bogotá, Medellín, Cartagena, Santa Marta, Cali, Barranquilla, San Andrés, Eje Cafetero, Ibagué, Guamo y otras zonas turísticas bajo evaluación.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              ¿Cuánto tarda en empezar a generar ingresos?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>Podemos tener una propiedad lista en 72 horas si la documentación está completa. Las primeras reservas suelen llegar tras publicar y activar precios iniciales.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              ¿Tengo que firmar un contrato largo?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>No trabajamos con permanencias largas por defecto. Definimos condiciones claras para que puedas probar el servicio con tranquilidad.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              ¿Qué incluye exactamente la gestión?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>Incluye creación de anuncios, distribución multicanal, precios dinámicos, atención a huéspedes, check-in, limpieza, mantenimiento e informes.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              ¿Qué pasa si vivo fuera de Colombia?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>Es justamente nuestro enfoque. Operamos 100% de forma local mientras tú supervisas todo desde cualquier parte del mundo a través del dashboard.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              ¿Cómo manejan el cumplimiento normativo?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>Gestionamos tu inscripción y renovación en el Registro Nacional de Turismo, el reporte de huéspedes (TRA/SIRE) y te mantenemos informado ante cualquier cambio regulatorio.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              ¿Hay algún coste más?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer"><p>Sí. Como propietario deberás seguir cubriendo los gastos fijos y variables de tu vivienda (mantenimiento, reparaciones, jardinería, mantenimiento de piscina, electricidad, calefacción…) y los gastos derivados del desgaste natural de la vivienda.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SECCIÓN: CTA FINAL === -->
+    <section class="section final-cta" id="contacto">
+      <div class="container cta-layout">
+        <div class="cta-copy reveal">
+          <span class="eyebrow">Contacto</span>
+          <h2>¿Listo para rentabilizar tu propiedad?</h2>
+          <p>Cuéntanos dónde está tu vivienda y te enviaremos una valoración gratuita con el potencial de ingresos, mejoras recomendadas y próximos pasos.</p>
+          <div class="trust-line">Sin compromiso · Respuesta en menos de 24h · 100% confidencial</div>
+        </div>
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="field-group">
+              <label for="name">Nombre</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+              <span class="field-error" data-error-for="name"></span>
+            </div>
+            <div class="field-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <span class="field-error" data-error-for="email"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label for="phone">Teléfono</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+              <span class="field-error" data-error-for="phone"></span>
+            </div>
+            <div class="field-group">
+              <label for="contactCity">Ciudad</label>
+              <input id="contactCity" name="contactCity" type="text" autocomplete="address-level2" required>
+              <span class="field-error" data-error-for="contactCity"></span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" placeholder="Cuéntanos el tipo de propiedad, ubicación y cualquier detalle relevante." required></textarea>
+            <span class="field-error" data-error-for="message"></span>
+          </div>
+          <button class="btn btn-primary" type="submit">Solicitar valoración gratuita</button>
+          <div class="form-success" id="formSuccess" role="status">Solicitud preparada. Te contactaremos en menos de 24h.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- === SECCIÓN: FOOTER === -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="#top" aria-label="Olea inicio">
+            <span class="brand-word" aria-hidden="true"><span class="brand-ole">OLE</span><span class="brand-a">A</span></span>
+          </a>
+          <p>Gestión integral de alquileres turísticos para propietarios que quieren rentabilidad sin fricción.</p>
+        </div>
+        <div class="footer-links" aria-label="Enlaces de footer">
+          <a href="#servicios">Servicios</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#">Política de Privacidad</a>
+          <a href="#">Aviso Legal</a>
+        </div>
+        <div class="social-links" aria-label="Redes sociales">
+          <a class="social-link" href="https://www.instagram.com/" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.8"/><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" stroke="currentColor" stroke-width="1.8"/><path d="M17.2 7h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.5 10v8M6.5 7v.01M11 18v-8M11 13.5c0-2 1.3-3.5 3.3-3.5 1.9 0 3.2 1.2 3.2 3.8V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </a>
+          <a class="social-link" href="https://wa.me/XXXXXXXXXX" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 19l1-3a7 7 0 1 1 2.8 2.4L5 19Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 9.5c.4 2 2 3.6 4 4l1.1-1.1 1.6.8c.2.1.3.3.3.5 0 .8-.6 1.6-1.5 1.6-3.6 0-6.5-2.9-6.5-6.5 0-.9.8-1.5 1.6-1.5.2 0 .4.1.5.3l.8 1.6-1.1 1.1Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <p class="copyright">© 2026 Olea. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/XXXXXXXXXX" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 19l1-3a7 7 0 1 1 2.8 2.4L5 19Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 9.5c.4 2 2 3.6 4 4l1.1-1.1 1.6.8c.2.1.3.3.3.5 0 .8-.6 1.6-1.5 1.6-3.6 0-6.5-2.9-6.5-6.5 0-.9.8-1.5 1.6-1.5.2 0 .4.1.5.3l.8 1.6-1.1 1.1Z" fill="currentColor"/></svg>
+  </a>
+
+  <script>
+    /* === SECCIÓN: UTILIDADES === */
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const formatCurrency = (value) => `$ ${Math.round(value).toLocaleString("es-CO")} COP`;
+
+    function animateValue(element, start, end, duration, options = {}) {
+      if (prefersReducedMotion) {
+        element.textContent = `${options.prefix || ""}${end.toLocaleString("es-CO")}${options.suffix || ""}`;
+        return;
+      }
+
+      const startTime = performance.now();
+      const decimals = Number.isInteger(end) ? 0 : 1;
+
+      function tick(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = start + (end - start) * eased;
+        const value = current.toLocaleString("es-CO", {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals
+        });
+        element.textContent = `${options.prefix || ""}${value}${options.suffix || ""}`;
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    /* === SECCIÓN: NAVEGACIÓN === */
+    const siteHeader = document.getElementById("siteHeader");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    function handleHeaderScroll() {
+      siteHeader.classList.toggle("scrolled", window.scrollY > 80);
+    }
+
+    window.addEventListener("scroll", handleHeaderScroll, { passive: true });
+    handleHeaderScroll();
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      menuToggle.classList.toggle("is-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+      document.body.style.overflow = isOpen ? "hidden" : "";
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const targetId = link.getAttribute("href");
+        const target = targetId.length > 1 ? document.querySelector(targetId) : null;
+
+        if (!target) return;
+
+        event.preventDefault();
+        navLinks.classList.remove("is-open");
+        menuToggle.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+        target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+      });
+    });
+
+    /* === SECCIÓN: SCROLL REVEALS Y COUNTERS === */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const element = entry.target;
+        const end = Number(element.dataset.counter);
+        animateValue(element, 0, end, 1400, {
+          prefix: element.dataset.prefix || "",
+          suffix: element.dataset.suffix || ""
+        });
+        counterObserver.unobserve(element);
+      });
+    }, { threshold: 0.55 });
+
+    document.querySelectorAll("[data-counter]").forEach((counter) => counterObserver.observe(counter));
+
+    /* === SECCIÓN: CALCULADORA === */
+    const squareMeters = document.getElementById("squareMeters");
+    const m2Value = document.getElementById("m2Value");
+    const city = document.getElementById("city");
+    const propertyType = document.getElementById("propertyType");
+    const estrato = document.getElementById("estrato");
+    const floorLevel = document.getElementById("floorLevel");
+    const locationZone = document.getElementById("locationZone");
+    const hasParking = document.getElementById("hasParking");
+    const hasPool = document.getElementById("hasPool");
+    const hasElevator = document.getElementById("hasElevator");
+    const monthlyIncome = document.getElementById("monthlyIncome");
+    const incomeRange = document.getElementById("incomeRange");
+    const resultFactors = document.getElementById("resultFactors");
+
+    /*
+      Modelo basado en datos reales de mercado (2025-2026):
+      Airbtics (full-year 2025), AirDNA, Fedelonjas/Camacol (vía Portafolio) y TheLatinvestor (2026).
+      Ingreso bruto mensual = ADR (COP) × ocupación × 30.4 noches, ajustado por
+      tipo, m², estrato, piso, zona y extras. Conversión de referencia ~4.100 COP/USD.
+      ADR y ocupación por ciudad corresponden a un inmueble tipo (1-2 hab).
+    */
+    const NIGHTS_PER_MONTH = 30.4;
+
+    const cityData = {
+      bogota: { adr: 148000, occupancy: 0.58 },
+      medellin: { adr: 209000, occupancy: 0.63 },
+      cartagena: { adr: 353000, occupancy: 0.56 },
+      santa_marta: { adr: 262000, occupancy: 0.47 },
+      cali: { adr: 139000, occupancy: 0.48 },
+      barranquilla: { adr: 201000, occupancy: 0.43 },
+      san_andres: { adr: 320000, occupancy: 0.55 },
+      eje_cafetero: { adr: 180000, occupancy: 0.50 },
+      ibague: { adr: 140000, occupancy: 0.48 },
+      guamo: { adr: 110000, occupancy: 0.42 }
+    };
+
+    // Multiplicador de tarifa según tipo de propiedad (inmueble 2 hab = base 1.0)
+    const typeFactors = {
+      studio: 0.78,
+      one: 0.9,
+      two: 1,
+      three: 1.35,
+      villa: 2.1
+    };
+
+    // Estrato: a mayor estrato, mayor tarifa y perfil de huésped (datos de zonas premium)
+    const estratoFactors = {
+      1: 0.78,
+      2: 0.86,
+      3: 0.94,
+      4: 1,
+      5: 1.12,
+      6: 1.28
+    };
+
+    const floorFactors = {
+      ground: 0.95,
+      low: 0.98,
+      mid: 1,
+      high: 1.05,
+      penthouse: 1.15
+    };
+
+    // Zonas premium/turísticas cobran 40-70% más que el promedio de su ciudad
+    const zoneFactors = {
+      standard: 1,
+      tourist: 1.15,
+      premium: 1.45
+    };
+
+    const estratoLabels = {
+      1: "Estrato 1",
+      2: "Estrato 2",
+      3: "Estrato 3",
+      4: "Estrato 4",
+      5: "Estrato 5",
+      6: "Estrato 6"
+    };
+
+    const floorLabels = {
+      ground: "Planta baja",
+      low: "Pisos 1-3",
+      mid: "Pisos 4-8",
+      high: "Pisos 9+",
+      penthouse: "Penthouse"
+    };
+
+    const zoneLabels = {
+      standard: "Zona estándar",
+      tourist: "Zona turística",
+      premium: "Zona premium"
+    };
+
+    let currentIncome = 0;
+
+    function formatCop(value) {
+      return `$ ${Math.round(value).toLocaleString("es-CO")} COP`;
+    }
+
+    function calculateIncome() {
+      const market = cityData[city.value];
+      const m2 = Number(squareMeters.value);
+      // El tamaño ya influye vía tipo de propiedad; aquí solo afina (±15%)
+      const m2Factor = Math.max(0.85, Math.min(1.2, 0.9 + (m2 - 60) / 400));
+
+      let adrMultiplier = typeFactors[propertyType.value]
+        * estratoFactors[estrato.value]
+        * floorFactors[floorLevel.value]
+        * zoneFactors[locationZone.value]
+        * m2Factor;
+
+      if (hasParking.checked) adrMultiplier *= 1.04;
+      if (hasPool.checked) adrMultiplier *= 1.07;
+      if (hasElevator.checked) adrMultiplier *= 1.03;
+      else if (["high", "penthouse"].includes(floorLevel.value)) adrMultiplier *= 0.9;
+
+      const adjustedAdr = market.adr * adrMultiplier;
+      const grossMonthly = adjustedAdr * market.occupancy * NIGHTS_PER_MONTH;
+      // Ingreso del propietario tras comisión de gestión del 15%
+      return grossMonthly * 0.85;
+    }
+
+    function renderFactorPills() {
+      const pills = [
+        estratoLabels[estrato.value],
+        floorLabels[floorLevel.value],
+        zoneLabels[locationZone.value]
+      ];
+
+      if (hasParking.checked) pills.push("Parqueadero");
+      if (hasPool.checked) pills.push("Piscina / zonas comunes");
+      if (hasElevator.checked) pills.push("Ascensor");
+      else pills.push("Sin ascensor");
+
+      resultFactors.innerHTML = pills.map((pill) => `<span class="factor-pill">${pill}</span>`).join("");
+    }
+
+    function updateCalculator() {
+      const nextIncome = calculateIncome();
+      const minIncome = nextIncome * 0.9;
+      const maxIncome = nextIncome * 1.1;
+
+      m2Value.textContent = `${squareMeters.value} m²`;
+      animateValue(monthlyIncome, currentIncome, nextIncome, 520, { prefix: "$ ", suffix: " COP" });
+      incomeRange.textContent = `Rango estimado: ${formatCop(minIncome)} - ${formatCop(maxIncome)}`;
+      renderFactorPills();
+      currentIncome = nextIncome;
+    }
+
+    [
+      squareMeters,
+      city,
+      propertyType,
+      estrato,
+      floorLevel,
+      locationZone,
+      hasParking,
+      hasPool,
+      hasElevator
+    ].forEach((input) => {
+      input.addEventListener("input", updateCalculator);
+      input.addEventListener("change", updateCalculator);
+    });
+
+    updateCalculator();
+
+    /* === SECCIÓN: FAQ === */
+    document.querySelectorAll(".faq-question").forEach((button) => {
+      button.addEventListener("click", () => {
+        const currentItem = button.closest(".faq-item");
+
+        document.querySelectorAll(".faq-item").forEach((item) => {
+          const isCurrent = item === currentItem;
+          item.classList.toggle("is-open", isCurrent && !item.classList.contains("is-open"));
+          item.querySelector(".faq-question").setAttribute("aria-expanded", String(item.classList.contains("is-open")));
+        });
+      });
+    });
+
+    /* === SECCIÓN: FORMULARIO === */
+    const contactForm = document.getElementById("contactForm");
+    const formSuccess = document.getElementById("formSuccess");
+
+    function setError(field, message) {
+      const error = contactForm.querySelector(`[data-error-for="${field.id}"]`);
+      if (error) error.textContent = message;
+      field.setAttribute("aria-invalid", message ? "true" : "false");
+    }
+
+    function validateField(field) {
+      const value = field.value.trim();
+
+      if (!value) {
+        setError(field, "Este campo es obligatorio.");
+        return false;
+      }
+
+      if (field.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        setError(field, "Introduce un email válido.");
+        return false;
+      }
+
+      if (field.type === "tel" && value.replace(/\D/g, "").length < 9) {
+        setError(field, "Introduce un teléfono válido.");
+        return false;
+      }
+
+      setError(field, "");
+      return true;
+    }
+
+    contactForm.querySelectorAll("input, textarea").forEach((field) => {
+      field.addEventListener("blur", () => validateField(field));
+      field.addEventListener("input", () => {
+        if (field.getAttribute("aria-invalid") === "true") validateField(field);
+      });
+    });
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fields = Array.from(contactForm.querySelectorAll("input, textarea"));
+      const isValid = fields.every(validateField);
+
+      formSuccess.classList.toggle("is-visible", isValid);
+      if (isValid) {
+        contactForm.reset();
+      }
+    });
+  </script>
+</body>
+</html>
