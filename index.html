@@ -756,6 +756,83 @@
       gap: 16px;
     }
 
+    .about-story {
+      display: grid;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .about-copy {
+      max-width: 900px;
+    }
+
+    .about-copy .eyebrow {
+      color: var(--gold);
+    }
+
+    .about-copy h2 {
+      margin-top: 14px;
+      color: var(--white);
+    }
+
+    .about-copy p {
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.05rem;
+    }
+
+    .founder-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .founder-card {
+      display: grid;
+      gap: 18px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .founder-photo {
+      justify-self: center;
+      width: min(100%, 260px);
+      aspect-ratio: 1;
+      border: 2px solid rgba(199, 164, 103, 0.44);
+      border-radius: 26px;
+      background: rgba(250, 247, 240, 0.08);
+      color: rgba(255, 255, 255, 0.72);
+      object-fit: cover;
+      object-position: center top;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+    }
+
+    .founder-card h3,
+    .founder-card .founder-role,
+    .founder-card p {
+      text-align: center;
+    }
+
+    .founder-card h3 {
+      color: var(--white);
+      font-size: 1.55rem;
+    }
+
+    .founder-role {
+      display: block;
+      margin-top: 4px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .founder-card p {
+      color: rgba(255, 255, 255, 0.74);
+    }
+
     .stat-card {
       padding: 26px;
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -865,6 +942,75 @@
       background: rgba(79, 91, 54, 0.12);
       color: var(--dark-olive);
       font-weight: 900;
+    }
+
+    /* === SECCIÓN: PROPIEDADES === */
+    .properties {
+      background: var(--card);
+      border-block: 1px solid var(--border);
+    }
+
+    .property-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .property-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .property-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .property-body {
+      display: grid;
+      gap: 12px;
+      padding: 22px;
+    }
+
+    .property-location {
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(193, 106, 71, 0.12);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .property-card h3 {
+      font-size: 1.2rem;
+    }
+
+    .property-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .property-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .property-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .property-rating {
+      color: var(--gold);
+      font-weight: 800;
     }
 
     /* === SECCIÓN: FAQ === */
@@ -989,6 +1135,64 @@
       min-height: 20px;
       display: flex;
       align-items: center;
+    }
+
+    .calendly-card {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at top left, rgba(0, 107, 255, 0.42), transparent 38%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.18);
+    }
+
+    .calendly-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .calendly-icon {
+      display: grid;
+      flex: 0 0 52px;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      border-radius: 16px;
+      background: #006BFF;
+      color: var(--white);
+      box-shadow: 0 16px 34px rgba(0, 107, 255, 0.34);
+    }
+
+    .calendly-card strong {
+      display: block;
+      color: var(--white);
+      font-family: "Fraunces", serif;
+      font-size: 1.18rem;
+      line-height: 1.1;
+    }
+
+    .calendly-card span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .calendly-button {
+      justify-content: center;
+      background: #006BFF;
+      color: var(--white);
+      box-shadow: 0 18px 36px rgba(0, 107, 255, 0.28);
+    }
+
+    .calendly-button:hover {
+      background: #0057D9;
+      box-shadow: 0 20px 44px rgba(0, 107, 255, 0.36);
     }
 
     .field-error {
@@ -1128,8 +1332,13 @@
       }
 
       .services-grid,
-      .testimonial-grid {
+      .testimonial-grid,
+      .property-grid {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .founder-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .calculator-layout,
@@ -1216,9 +1425,11 @@
       <div class="nav-links" id="navLinks">
         <a href="#servicios">Servicios</a>
         <a href="#proceso">Cómo funciona</a>
+        <a href="#propiedades">Propiedades</a>
         <a href="#calculadora">Calculadora</a>
+        <a href="#nosotros">Quiénes somos</a>
         <a href="#contacto">Contacto</a>
-        <a class="btn btn-primary nav-cta" href="#contacto">Habla con nosotros</a>
+        <a class="btn btn-primary nav-cta" href="https://wa.me/971556587548?text=Hola%20Olea%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20gesti%C3%B3n%20de%20mi%20propiedad%20para%20alquiler%20tur%C3%ADstico%20en%20Colombia." target="_blank" rel="noopener noreferrer">Habla con nosotros</a>
       </div>
       <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
         <span></span>
@@ -1322,6 +1533,130 @@
             </div>
             <h3>Reportes mensuales y cumplimiento normativo</h3>
             <p>Dashboard de ingresos, ocupación y reseñas con lectura clara. RNT, TRA/SIRE y alertas ante cambios regulatorios, gestionados por nosotros.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SECCIÓN: PROCESO === -->
+    <section class="section" id="proceso">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Proceso</span>
+          <h2>Cómo funciona, paso a paso.</h2>
+          <p>Un sistema simple y transparente, con equipo humano respaldado por IA para que delegues sin perder control.</p>
+        </div>
+        <div class="timeline">
+          <article class="card step-card reveal">
+            <div class="step-number">1</div>
+            <h3>Contacto gratuito</h3>
+            <p>Analizamos tu propiedad sin compromiso. La IA cruza datos de mercado, ocupación y tarifas para estimar su potencial real con mayor precisión.</p>
+          </article>
+          <article class="card step-card reveal">
+            <div class="step-number">2</div>
+            <h3>Alta en 72h</h3>
+            <p>Preparamos anuncio, fotos, precios y publicación multicanal. La IA optimiza títulos, descripciones y precios dinámicos desde el primer día.</p>
+          </article>
+          <article class="card step-card reveal">
+            <div class="step-number">3</div>
+            <h3>Generamos reservas</h3>
+            <p>Activamos gestión comercial, operativa y de huéspedes 24/7. La IA responde en segundos; nuestro equipo supervisa cada interacción.</p>
+          </article>
+          <article class="card step-card reveal">
+            <div class="step-number">4</div>
+            <h3>Cobras cada mes</h3>
+            <p>Transferencia directa con informe detallado de ingresos y ocupación. Dashboard con insights de IA sobre rendimiento, reseñas y oportunidades.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- === SECCIÓN: PROPIEDADES === -->
+    <section class="section properties" id="propiedades">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Portafolio</span>
+          <h2>Nuestras propiedades</h2>
+          <p>Algunos de los inmuebles que gestionamos en Colombia, optimizados para ocupación, tarifa media y experiencia del huésped.</p>
+        </div>
+        <div class="property-grid">
+          <article class="card property-card reveal">
+            <img class="property-image" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Apartamento moderno en Chapinero, Bogotá">
+            <div class="property-body">
+              <span class="property-location">Bogotá · Chapinero</span>
+              <h3>Apartamento urbano 2 hab</h3>
+              <div class="property-meta">
+                <span>2 hab</span>
+                <span>4 huéspedes</span>
+                <span class="property-rating">4.9★</span>
+              </div>
+              <p>Gestión integral con precios dinámicos y ocupación media del 58%.</p>
+            </div>
+          </article>
+          <article class="card property-card reveal">
+            <img class="property-image" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="Loft con balcón en El Poblado, Medellín">
+            <div class="property-body">
+              <span class="property-location">Medellín · El Poblado</span>
+              <h3>Loft con balcón</h3>
+              <div class="property-meta">
+                <span>1 hab</span>
+                <span>2 huéspedes</span>
+                <span class="property-rating">4.9★</span>
+              </div>
+              <p>Anuncio optimizado y mensajería 24/7 con respuesta inmediata.</p>
+            </div>
+          </article>
+          <article class="card property-card reveal">
+            <img class="property-image" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Casa vacacional en Cartagena">
+            <div class="property-body">
+              <span class="property-location">Cartagena · Centro histórico</span>
+              <h3>Casa vacacional premium</h3>
+              <div class="property-meta">
+                <span>3 hab</span>
+                <span>8 huéspedes</span>
+                <span class="property-rating">5.0★</span>
+              </div>
+              <p>Tarifas ajustadas a temporada alta y demanda turística real.</p>
+            </div>
+          </article>
+          <article class="card property-card reveal">
+            <img class="property-image" src="assets/piscina-guamo.jpg" alt="Villa ecoturística en Guamo">
+            <div class="property-body">
+              <span class="property-location">Guamo · Tolima</span>
+              <h3>Villa ecoturística</h3>
+              <div class="property-meta">
+                <span>4 hab</span>
+                <span>10 huéspedes</span>
+                <span class="property-rating">4.8★</span>
+              </div>
+              <p>Experiencia rural con limpieza certificada y verificación fotográfica.</p>
+            </div>
+          </article>
+          <article class="card property-card reveal">
+            <img class="property-image" src="assets/piscina-ibague.jpg" alt="Piscina en terraza con vista a las montañas en Ibagué">
+            <div class="property-body">
+              <span class="property-location">Ibagué</span>
+              <h3>Apartamento céntrico</h3>
+              <div class="property-meta">
+                <span>2 hab</span>
+                <span>5 huéspedes</span>
+                <span class="property-rating">4.7★</span>
+              </div>
+              <p>Publicado en Airbnb, Booking y Portal Olea con check-in automatizado.</p>
+            </div>
+          </article>
+          <article class="card property-card reveal">
+            <img class="property-image" src="assets/santa-marta-rodadero.jpg" alt="Apartamento con piscina frente al mar en Santa Marta">
+            <div class="property-body">
+              <span class="property-location">Santa Marta · Rodadero</span>
+              <h3>Apartamento frente al mar</h3>
+              <div class="property-meta">
+                <span>2 hab</span>
+                <span>6 huéspedes</span>
+                <span class="property-rating">4.9★</span>
+              </div>
+              <p>Revenue management dinámico según eventos y temporada vacacional.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -1434,53 +1769,47 @@
       </div>
     </section>
 
-    <!-- === SECCIÓN: STATS === -->
-    <section class="stats" aria-label="Resultados de Olea">
-      <div class="container stats-grid reveal">
-        <div class="stat-card">
-          <div class="stat-number" data-counter="4.9" data-suffix="★">0★</div>
-          <p>Valoración media huéspedes</p>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-counter="40" data-prefix="+" data-suffix="%">+0%</div>
-          <p>Ingresos vs. gestión propia</p>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-counter="72" data-suffix="h">0h</div>
-          <p>Para poner tu propiedad online</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- === SECCIÓN: PROCESO === -->
-    <section class="section" id="proceso">
+    <!-- === SECCIÓN: QUIÉNES SOMOS === -->
+    <section class="stats" id="nosotros" aria-label="Resultados de Olea">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Proceso</span>
-          <h2>Cómo funciona, paso a paso.</h2>
-          <p>Un sistema simple y transparente, con equipo humano respaldado por IA para que delegues sin perder control.</p>
+        <div class="about-story reveal">
+          <div class="about-copy">
+            <span class="eyebrow">Quién está detrás de Olea</span>
+            <h2>Una idea nacida en España, traída a Colombia por convicción.</h2>
+            <p>OLEA nació cuando Tatiana, gestionando una propiedad en Madrid desde Dubái, decidió traer ese estándar internacional de hospitalidad a Colombia, convencida de que su país merece - y tiene el talento para sostener - un nivel de servicio a la altura de cualquier mercado del mundo. El nombre y el verde oliva vienen de ahí: del olivo mediterráneo, símbolo de paz, abundancia y cuidado a largo plazo.</p>
+          </div>
+          <div class="founder-grid">
+            <article class="founder-card">
+              <img class="founder-photo" src="assets/tatiana.jpeg" alt="Foto de Tatiana, fundadora de Olea">
+              <div>
+                <h3>Tatiana</h3>
+                <span class="founder-role">Fundadora</span>
+              </div>
+              <p>Trae el modelo de gestión que perfeccionó en España, con la visión de impulsar el progreso turístico de Colombia.</p>
+            </article>
+            <article class="founder-card">
+              <img class="founder-photo" src="assets/laura.jpeg" alt="Foto de Laura, cofundadora y PMO Manager de Olea">
+              <div>
+                <h3>Laura</h3>
+                <span class="founder-role">Cofundadora & PMO Manager</span>
+              </div>
+              <p>Lidera la operación de cada propiedad con precisión y pasión por mostrarle al mundo la belleza de Colombia.</p>
+            </article>
+          </div>
         </div>
-        <div class="timeline">
-          <article class="card step-card reveal">
-            <div class="step-number">1</div>
-            <h3>Contacto gratuito</h3>
-            <p>Analizamos tu propiedad sin compromiso. La IA cruza datos de mercado, ocupación y tarifas para estimar su potencial real con mayor precisión.</p>
-          </article>
-          <article class="card step-card reveal">
-            <div class="step-number">2</div>
-            <h3>Alta en 72h</h3>
-            <p>Preparamos anuncio, fotos, precios y publicación multicanal. La IA optimiza títulos, descripciones y precios dinámicos desde el primer día.</p>
-          </article>
-          <article class="card step-card reveal">
-            <div class="step-number">3</div>
-            <h3>Generamos reservas</h3>
-            <p>Activamos gestión comercial, operativa y de huéspedes 24/7. La IA responde en segundos; nuestro equipo supervisa cada interacción.</p>
-          </article>
-          <article class="card step-card reveal">
-            <div class="step-number">4</div>
-            <h3>Cobras cada mes</h3>
-            <p>Transferencia directa con informe detallado de ingresos y ocupación. Dashboard con insights de IA sobre rendimiento, reseñas y oportunidades.</p>
-          </article>
+        <div class="stats-grid reveal">
+          <div class="stat-card">
+            <div class="stat-number" data-counter="4.9" data-suffix="★">0★</div>
+            <p>Valoración media huéspedes</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-counter="40" data-prefix="+" data-suffix="%">+0%</div>
+            <p>Ingresos vs. gestión propia</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-counter="72" data-suffix="h">0h</div>
+            <p>Para poner tu propiedad online</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1662,6 +1991,21 @@
             <span class="field-error" data-error-for="message"></span>
           </div>
           <button class="btn btn-primary" type="submit">Solicitar valoración gratuita</button>
+          <div class="calendly-card">
+            <div class="calendly-card-header">
+              <div class="calendly-icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" role="img">
+                  <path d="M7 3v3M17 3v3M4.5 9.5h15M6.5 5h11A2.5 2.5 0 0 1 20 7.5v10A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5v-10A2.5 2.5 0 0 1 6.5 5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M8 13h3v3H8v-3Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Agenda una llamada de 30 minutos</strong>
+                <span>Elige el horario que mejor te encaje directamente en Calendly.</span>
+              </div>
+            </div>
+            <a class="btn calendly-button" href="https://calendly.com/tatianagomezfiscal/30min" target="_blank" rel="noopener noreferrer">Abrir Calendly</a>
+          </div>
           <div class="form-success" id="formSuccess" role="status">Solicitud preparada. Te contactaremos en menos de 24h.</div>
         </form>
       </div>
@@ -1680,6 +2024,7 @@
         </div>
         <div class="footer-links" aria-label="Enlaces de footer">
           <a href="#servicios">Servicios</a>
+          <a href="#propiedades">Propiedades</a>
           <a href="#proceso">Proceso</a>
           <a href="#faq">FAQ</a>
           <a href="#contacto">Contacto</a>
@@ -1693,7 +2038,7 @@
           <a class="social-link" href="https://www.linkedin.com/" aria-label="LinkedIn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.5 10v8M6.5 7v.01M11 18v-8M11 13.5c0-2 1.3-3.5 3.3-3.5 1.9 0 3.2 1.2 3.2 3.8V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           </a>
-          <a class="social-link" href="https://wa.me/XXXXXXXXXX" aria-label="WhatsApp">
+          <a class="social-link" href="https://wa.me/971556587548?text=Hola%20Olea%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20gesti%C3%B3n%20de%20mi%20propiedad%20para%20alquiler%20tur%C3%ADstico%20en%20Colombia." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 19l1-3a7 7 0 1 1 2.8 2.4L5 19Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 9.5c.4 2 2 3.6 4 4l1.1-1.1 1.6.8c.2.1.3.3.3.5 0 .8-.6 1.6-1.5 1.6-3.6 0-6.5-2.9-6.5-6.5 0-.9.8-1.5 1.6-1.5.2 0 .4.1.5.3l.8 1.6-1.1 1.1Z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1702,7 +2047,7 @@
     </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/XXXXXXXXXX" aria-label="Contactar por WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/971556587548?text=Hola%20Olea%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20gesti%C3%B3n%20de%20mi%20propiedad%20para%20alquiler%20tur%C3%ADstico%20en%20Colombia." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 19l1-3a7 7 0 1 1 2.8 2.4L5 19Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 9.5c.4 2 2 3.6 4 4l1.1-1.1 1.6.8c.2.1.3.3.3.5 0 .8-.6 1.6-1.5 1.6-3.6 0-6.5-2.9-6.5-6.5 0-.9.8-1.5 1.6-1.5.2 0 .4.1.5.3l.8 1.6-1.1 1.1Z" fill="currentColor"/></svg>
   </a>
 
